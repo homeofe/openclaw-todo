@@ -1,7 +1,7 @@
 {
   "id": "openclaw-todo",
   "name": "OpenClaw TODO",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Manage workspace TODO.md via commands and expose TODO status as a tool. Optional brain logging.",
   "configSchema": {
     "$schema": "http://json-schema.org/draft-07/schema#",
