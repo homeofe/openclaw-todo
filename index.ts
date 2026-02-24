@@ -40,7 +40,7 @@ function markDone(md: string, item: TodoItem): string {
 }
 
 function addTodo(md: string, text: string): string {
-  // Add under first section header after PRIVATE_PROJECT if found, else append at end.
+  // Add under a preferred section header if found, else append at end.
   const lines = md.split("\n");
   const bullet = `- [ ] ${text}`;
 
