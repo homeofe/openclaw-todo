@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { expandHome, parseTodos, markDone, editTodo, addTodo, type TodoItem } from "./index.js";
+import { expandHome, parseTodos, markDone, editTodo, removeTodo, addTodo, type TodoItem } from "./index.js";
 import os from "node:os";
 import path from "node:path";
 
@@ -244,6 +244,100 @@ describe("editTodo + parseTodos round-trip", () => {
     expect(reParsed[1].text).toBe("Task B edited");
     expect(reParsed[2].text).toBe("Task C");
     expect(reParsed.every((t) => !t.done)).toBe(true);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// removeTodo
+// ---------------------------------------------------------------------------
+describe("removeTodo", () => {
+  it("removes a single item from a one-item document", () => {
+    const md = "- [ ] Only task";
+    const item: TodoItem = { lineNo: 0, raw: "- [ ] Only task", done: false, text: "Only task" };
+    const result = removeTodo(md, item);
+    expect(result).toBe("");
+  });
+
+  it("removes the correct item from a multi-line document", () => {
+    const md = [
+      "# TODO",
+      "- [ ] First",
+      "- [ ] Second",
+      "- [ ] Third",
+    ].join("\n");
+    const item: TodoItem = { lineNo: 2, raw: "- [ ] Second", done: false, text: "Second" };
+    const result = removeTodo(md, item);
+    const lines = result.split("\n");
+    expect(lines).toHaveLength(3);
+    expect(lines[0]).toBe("# TODO");
+    expect(lines[1]).toBe("- [ ] First");
+    expect(lines[2]).toBe("- [ ] Third");
+  });
+
+  it("removes the first item", () => {
+    const md = [
+      "- [ ] First",
+      "- [ ] Second",
+    ].join("\n");
+    const item: TodoItem = { lineNo: 0, raw: "- [ ] First", done: false, text: "First" };
+    const result = removeTodo(md, item);
+    expect(result).toBe("- [ ] Second");
+  });
+
+  it("removes the last item", () => {
+    const md = [
+      "- [ ] First",
+      "- [ ] Second",
+    ].join("\n");
+    const item: TodoItem = { lineNo: 1, raw: "- [ ] Second", done: false, text: "Second" };
+    const result = removeTodo(md, item);
+    expect(result).toBe("- [ ] First");
+  });
+
+  it("removes a done item", () => {
+    const md = [
+      "- [ ] Open",
+      "- [x] Done",
+    ].join("\n");
+    const item: TodoItem = { lineNo: 1, raw: "- [x] Done", done: true, text: "Done" };
+    const result = removeTodo(md, item);
+    expect(result).toBe("- [ ] Open");
+  });
+
+  it("preserves surrounding non-todo lines", () => {
+    const md = [
+      "# TODO",
+      "",
+      "- [ ] Task",
+      "",
+      "Some notes",
+    ].join("\n");
+    const item: TodoItem = { lineNo: 2, raw: "- [ ] Task", done: false, text: "Task" };
+    const result = removeTodo(md, item);
+    const lines = result.split("\n");
+    expect(lines).toEqual(["# TODO", "", "", "Some notes"]);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// removeTodo + parseTodos round-trip
+// ---------------------------------------------------------------------------
+describe("removeTodo + parseTodos round-trip", () => {
+  it("removes an item and re-parses correctly", () => {
+    const md = [
+      "# TODO",
+      "- [ ] Task A",
+      "- [ ] Task B",
+      "- [ ] Task C",
+    ].join("\n");
+
+    const todos = parseTodos(md);
+    const updated = removeTodo(md, todos[1]); // remove Task B
+    const reParsed = parseTodos(updated);
+
+    expect(reParsed).toHaveLength(2);
+    expect(reParsed[0].text).toBe("Task A");
+    expect(reParsed[1].text).toBe("Task C");
   });
 });
 

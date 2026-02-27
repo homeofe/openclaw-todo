@@ -62,6 +62,12 @@ export function editTodo(md: string, item: TodoItem, newText: string): string {
   return lines.join("\n");
 }
 
+export function removeTodo(md: string, item: TodoItem): string {
+  const lines = md.split("\n");
+  lines.splice(item.lineNo, 1);
+  return lines.join("\n");
+}
+
 export function addTodo(md: string, text: string, sectionHeader?: string): string {
   const lines = md.split("\n");
   const bullet = `- [ ] ${text}`;
@@ -221,6 +227,31 @@ export default function register(api: any) {
 
       if (doBrainLog) await brainLog(brainStorePath, `edited - "${oldText}" -> "${newText}"`);
       return { text: `Edited TODO #${idx}: "${oldText}" -> "${newText}"` };
+    },
+  });
+
+  api.registerCommand({
+    name: "todo-remove",
+    description: "Remove a TODO item",
+    requireAuth: false,
+    acceptsArgs: true,
+    handler: async (ctx: any) => {
+      const idxStr = String(ctx?.args ?? "").trim();
+      const idx = Number(idxStr);
+      if (!idxStr || !Number.isFinite(idx) || idx < 1) {
+        return { text: "Usage: /todo-remove <index> (see /todo-list)" };
+      }
+
+      const md = readTodoFile(todoFile);
+      const open = parseTodos(md).filter((t) => !t.done);
+      const item = open[idx - 1];
+      if (!item) return { text: `No open TODO at index ${idx}.` };
+
+      const next = removeTodo(md, item);
+      fs.writeFileSync(todoFile, next, "utf-8");
+
+      if (doBrainLog) await brainLog(brainStorePath, `removed - ${item.text}`);
+      return { text: `Removed TODO: ${item.text}` };
     },
   });
 

@@ -62,14 +62,15 @@
       "title": "Add /todo-edit command",
       "status": "done",
       "depends_on": [],
-      "completed": "2026-02-27T15:48:00.000Z"
+      "completed": "2026-02-27T14:49:38.252Z"
     },
     "T-007": {
       "created": "2026-02-27T23:00:00Z",
       "priority": "medium",
       "title": "Add /todo-remove command",
-      "status": "ready",
-      "depends_on": []
+      "status": "done",
+      "depends_on": [],
+      "completed": "2026-02-27T16:03:00.000Z"
     },
     "T-008": {
       "created": "2026-02-27T23:00:00Z",
@@ -95,7 +96,7 @@
       ]
     }
   },
-  "quick_context": "v0.2 in progress: all P1 done, T-006 /todo-edit done. Remaining P2: T-007 remove, T-008 tags. P3: T-009 search, T-010 due dates.",
+  "quick_context": "v0.2 in progress: all P1 done, T-006 /todo-edit done, T-007 /todo-remove done. Remaining P2: T-008 tags. P3: T-009 search, T-010 due dates.",
   "aahp_version": "3.0",
   "project": "openclaw-todo",
   "token_budget": {
@@ -104,12 +105,12 @@
     "manifest_plus_core": 300
   },
   "last_session": {
-    "timestamp": "2026-02-27T15:48:00.000Z",
+    "timestamp": "2026-02-27T16:03:00.000Z",
     "phase": "implementation",
     "agent": "claude-code",
-    "commit": "034312b",
-    "duration_minutes": 3,
-    "session_id": "t006-todo-edit"
+    "commit": "",
+    "duration_minutes": 2,
+    "session_id": "t007-todo-remove"
   },
   "next_task_id": 11
 }
