@@ -96,7 +96,7 @@
       "depends_on": [
         "T-008"
       ],
-      "completed": "2026-02-27T20:10:00.000Z"
+      "completed": "2026-02-27T19:12:11.011Z"
     }
   },
   "quick_context": "v0.3.0 released: all v0.2 roadmap tasks complete. T-010 due date support with @due(YYYY-MM-DD) parsing, overdue-first sorting, @due/@overdue/@today search filters, and overdue filter in todo_status.",
@@ -108,11 +108,11 @@
     "manifest_plus_core": 300
   },
   "last_session": {
-    "timestamp": "2026-02-27T20:10:00.000Z",
+    "timestamp": "2026-02-27T19:12:11.011Z",
     "phase": "implementation",
     "agent": "claude-code",
     "commit": "ab8d29f",
-    "duration_minutes": 5,
+    "duration_minutes": 2,
     "session_id": "t010-due-dates"
   },
   "next_task_id": 11
