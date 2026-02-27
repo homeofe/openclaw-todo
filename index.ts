@@ -11,6 +11,23 @@ function expandHome(p: string): string {
   return p;
 }
 
+const DEFAULT_TODO_TEMPLATE = `# TODO
+
+- [ ] My first task
+`;
+
+function ensureTodoFile(filePath: string): void {
+  if (fs.existsSync(filePath)) return;
+  const dir = path.dirname(filePath);
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(filePath, DEFAULT_TODO_TEMPLATE, "utf-8");
+}
+
+function readTodoFile(filePath: string): string {
+  ensureTodoFile(filePath);
+  return fs.readFileSync(filePath, "utf-8");
+}
+
 type TodoItem = {
   lineNo: number;
   raw: string;
@@ -93,6 +110,7 @@ export default function register(api: any) {
   const brainStorePath = expandHome(cfg.brainStorePath ?? "~/.openclaw/workspace/memory/brain-memory.jsonl");
   const maxListItems = cfg.maxListItems ?? 30;
 
+  ensureTodoFile(todoFile);
   api.logger?.info?.(`[todo] enabled. file=${todoFile}`);
 
   api.registerCommand({
@@ -101,7 +119,7 @@ export default function register(api: any) {
     requireAuth: false,
     acceptsArgs: false,
     handler: async () => {
-      const md = fs.readFileSync(todoFile, "utf-8");
+      const md = readTodoFile(todoFile);
       const todos = parseTodos(md).filter((t) => !t.done);
       const top = todos.slice(0, maxListItems);
       if (top.length === 0) return { text: "No open TODOs." };
@@ -119,7 +137,7 @@ export default function register(api: any) {
       const text = String(ctx?.args ?? "").trim();
       if (!text) return { text: "Usage: /todo-add <text>" };
 
-      const md = fs.readFileSync(todoFile, "utf-8");
+      const md = readTodoFile(todoFile);
       const next = addTodo(md, text);
       fs.writeFileSync(todoFile, next, "utf-8");
 
@@ -140,7 +158,7 @@ export default function register(api: any) {
         return { text: "Usage: /todo-done <index> (see /todo-list)" };
       }
 
-      const md = fs.readFileSync(todoFile, "utf-8");
+      const md = readTodoFile(todoFile);
       const open = parseTodos(md).filter((t) => !t.done);
       const item = open[idx - 1];
       if (!item) return { text: `No open TODO at index ${idx}.` };
@@ -166,7 +184,7 @@ export default function register(api: any) {
     },
     handler: async (params: any) => {
       const limit = Number(params?.limit ?? 50);
-      const md = fs.readFileSync(todoFile, "utf-8");
+      const md = readTodoFile(todoFile);
       const all = parseTodos(md);
       const open = all.filter((t) => !t.done);
       const done = all.filter((t) => t.done);

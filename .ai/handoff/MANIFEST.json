@@ -20,15 +20,15 @@
       "title": "Define v0.2 roadmap items as GitHub issues and prioritize",
       "status": "done",
       "depends_on": [],
-      "completed": "2026-02-27T23:00:00Z",
-      "notes": "Roadmap defined in ROADMAP.md. GitHub issues deferred - gh CLI not authenticated."
+      "completed": "2026-02-27T13:16:29.430Z"
     },
     "T-002": {
       "created": "2026-02-27T23:00:00Z",
       "priority": "high",
       "title": "Graceful file init - auto-create TODO.md if missing",
-      "status": "ready",
-      "depends_on": []
+      "status": "done",
+      "depends_on": [],
+      "completed": "2026-02-27T14:00:00Z"
     },
     "T-003": {
       "created": "2026-02-27T23:00:00Z",
@@ -49,7 +49,9 @@
       "priority": "high",
       "title": "Add unit tests for core parsing/mutation functions",
       "status": "ready",
-      "depends_on": ["T-004"]
+      "depends_on": [
+        "T-004"
+      ]
     },
     "T-006": {
       "created": "2026-02-27T23:00:00Z",
@@ -84,10 +86,12 @@
       "priority": "low",
       "title": "Add due date support (@due)",
       "status": "ready",
-      "depends_on": ["T-008"]
+      "depends_on": [
+        "T-008"
+      ]
     }
   },
-  "quick_context": "v0.2 roadmap defined: 4x P1 (file init, i18n, tsconfig, tests), 3x P2 (edit/remove/tags), 2x P3 (search, due dates). GitHub issues deferred pending gh auth.",
+  "quick_context": "v0.2 in progress: T-002 (file init) done. Remaining P1: i18n (T-003), tsconfig (T-004), tests (T-005). P2: edit/remove/tags. P3: search, due dates.",
   "aahp_version": "3.0",
   "project": "openclaw-todo",
   "token_budget": {
@@ -96,12 +100,12 @@
     "manifest_plus_core": 300
   },
   "last_session": {
-    "timestamp": "2026-02-27T23:00:00Z",
-    "phase": "planning",
-    "agent": "claude-opus-4-6",
-    "commit": "9b461cf",
+    "timestamp": "2026-02-27T14:00:00Z",
+    "phase": "implementation",
+    "agent": "claude-code",
+    "commit": "pending",
     "duration_minutes": 5,
-    "session_id": "v02-roadmap-definition"
+    "session_id": "t002-graceful-file-init"
   },
   "next_task_id": 11
 }
