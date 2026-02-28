@@ -4,24 +4,17 @@
 
 | Status  | Count |
 |---------|-------|
-| Done    | 14    |
-| Ready   | 6     |
+| Done    | 15    |
+| Ready   | 5     |
 | Blocked | 0     |
 
 ---
 
 ## Ready - Work These Next
 
-### T-014: T-007: Add /todo-remove command [medium]
-- **Goal**: Close GitHub issue #7 - feature already implemented
-- **Context**: /todo-remove command was implemented in T-007
-- **What to do**: Verify implementation, close GitHub issue #7, mark T-014 done in MANIFEST.json
-- **Files**: `.ai/handoff/MANIFEST.json`
-- **Definition of done**: GitHub issue #7 closed, T-014 marked done
-
 ### T-015: T-006: Add /todo-edit command [medium]
 - **Goal**: Close GitHub issue #6 - feature already implemented
-- **Context**: /todo-edit command was implemented in T-006
+- **Context**: /todo-edit command was implemented in T-006 with full test coverage
 - **What to do**: Verify implementation, close GitHub issue #6, mark T-015 done in MANIFEST.json
 - **Files**: `.ai/handoff/MANIFEST.json`
 - **Definition of done**: GitHub issue #6 closed, T-015 marked done
@@ -64,10 +57,10 @@ _No blocked tasks._
 
 ## Recently Completed
 
-| Task   | Title                          | Completed  |
-|--------|--------------------------------|------------|
-| T-013  | T-008: Add tag/priority support | 2026-02-28 |
-| T-012  | T-009: Add /todo-search command | 2026-02-28 |
-| T-011  | T-010: Add due date support    | 2026-02-28 |
-| T-010  | Add due date support (@due)    | 2026-02-27 |
-| T-009  | Add /todo-search command       | 2026-02-27 |
+| Task   | Title                            | Completed  |
+|--------|----------------------------------|------------|
+| T-014  | T-007: Add /todo-remove command  | 2026-02-28 |
+| T-013  | T-008: Add tag/priority support  | 2026-02-28 |
+| T-012  | T-009: Add /todo-search command  | 2026-02-28 |
+| T-011  | T-010: Add due date support      | 2026-02-28 |
+| T-010  | Add due date support (@due)      | 2026-02-27 |

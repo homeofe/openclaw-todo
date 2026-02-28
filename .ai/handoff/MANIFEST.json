@@ -129,17 +129,18 @@
       "notes": "Support #tag and !high priority markers in TODO items.\n\n**From AAHP NEXT_ACTIONS**",
       "github_issue": 8,
       "github_repo": "elvatis/openclaw-todo",
-      "completed": "2026-02-28T19:36:30.000Z"
+      "completed": "2026-02-28T18:37:11.652Z"
     },
     "T-014": {
       "title": "T-007: Add /todo-remove command",
-      "status": "ready",
+      "status": "done",
       "priority": "medium",
       "depends_on": [],
       "created": "2026-02-28T18:15:18.431Z",
       "notes": "Allow removing TODO items via /todo-remove command.\n\n**From AAHP NEXT_ACTIONS**",
       "github_issue": 7,
-      "github_repo": "elvatis/openclaw-todo"
+      "github_repo": "elvatis/openclaw-todo",
+      "completed": "2026-02-28T20:03:00.000Z"
     },
     "T-015": {
       "title": "T-006: Add /todo-edit command",
@@ -192,7 +193,7 @@
       "github_repo": "elvatis/openclaw-todo"
     }
   },
-  "quick_context": "v0.3.0 released: all v0.2 roadmap tasks complete. T-013 closed (tag/priority tracking, GitHub #8). Remaining T-014 through T-019 are AAHP tracking tasks for already-implemented features awaiting GitHub issue closure.",
+  "quick_context": "v0.3.0 released: all v0.2 roadmap tasks complete. T-014 closed (/todo-remove tracking, GitHub #7). Remaining T-015 through T-019 are AAHP tracking tasks for already-implemented features awaiting GitHub issue closure.",
   "aahp_version": "3.0",
   "project": "openclaw-todo",
   "token_budget": {
@@ -201,12 +202,12 @@
     "manifest_plus_core": 300
   },
   "last_session": {
-    "timestamp": "2026-02-28T19:36:30.000Z",
+    "timestamp": "2026-02-28T20:03:00.000Z",
     "phase": "implementation",
     "agent": "claude-code",
-    "commit": "f1931c2",
-    "duration_minutes": 1,
-    "session_id": "t013-close-tag-priority-tracking"
+    "commit": "c7905c8",
+    "duration_minutes": 2,
+    "session_id": "t014-close-todo-remove-tracking"
   },
   "next_task_id": 20
 }
