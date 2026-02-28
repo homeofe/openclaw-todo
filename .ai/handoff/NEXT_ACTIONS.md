@@ -4,20 +4,13 @@
 
 | Status  | Count |
 |---------|-------|
-| Done    | 17    |
-| Ready   | 3     |
+| Done    | 18    |
+| Ready   | 2     |
 | Blocked | 0     |
 
 ---
 
 ## Ready - Work These Next
-
-### T-017: T-004: Add TypeScript build configuration [medium]
-- **Goal**: Close GitHub issue #4 - feature already implemented
-- **Context**: tsconfig.json was added in T-004
-- **What to do**: Verify configuration, close GitHub issue #4, mark T-017 done in MANIFEST.json
-- **Files**: `.ai/handoff/MANIFEST.json`
-- **Definition of done**: GitHub issue #4 closed, T-017 marked done
 
 ### T-018: T-003: Make section headers configurable [medium]
 - **Goal**: Close GitHub issue #3 - feature already implemented
@@ -45,8 +38,8 @@ _No blocked tasks._
 
 | Task   | Title                                              | Completed  |
 |--------|----------------------------------------------------|------------|
+| T-017  | T-004: Add TypeScript build configuration          | 2026-02-28 |
 | T-016  | T-005: Add unit tests for core parsing/mutation    | 2026-02-28 |
 | T-015  | T-006: Add /todo-edit command                      | 2026-02-28 |
 | T-014  | T-007: Add /todo-remove command                    | 2026-02-28 |
 | T-013  | T-008: Add tag/priority support                    | 2026-02-28 |
-| T-012  | T-009: Add /todo-search command                    | 2026-02-28 |
