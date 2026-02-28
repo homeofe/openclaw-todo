@@ -151,17 +151,18 @@
       "notes": "Allow editing existing TODO items via /todo-edit command.\n\n**From AAHP NEXT_ACTIONS**",
       "github_issue": 6,
       "github_repo": "elvatis/openclaw-todo",
-      "completed": "2026-02-28T20:20:00.000Z"
+      "completed": "2026-02-28T19:21:53.193Z"
     },
     "T-016": {
       "title": "T-005: Add unit tests for core parsing/mutation functions",
-      "status": "ready",
+      "status": "done",
       "priority": "medium",
       "depends_on": [],
       "created": "2026-02-28T18:15:18.431Z",
       "notes": "Add unit tests for TODO parsing and mutation logic. Depends on T-004 (tsconfig).\n\n**From AAHP NEXT_ACTIONS**",
       "github_issue": 5,
-      "github_repo": "elvatis/openclaw-todo"
+      "github_repo": "elvatis/openclaw-todo",
+      "completed": "2026-02-28T20:23:30.000Z"
     },
     "T-017": {
       "title": "T-004: Add TypeScript build configuration",
@@ -194,7 +195,7 @@
       "github_repo": "elvatis/openclaw-todo"
     }
   },
-  "quick_context": "v0.3.0 released: all v0.2 roadmap tasks complete. T-015 closed (/todo-edit tracking, GitHub #6). Remaining T-016 through T-019 are AAHP tracking tasks for already-implemented features awaiting GitHub issue closure.",
+  "quick_context": "v0.3.0 released: all v0.2 roadmap tasks complete. T-016 closed (unit tests tracking, GitHub #5). Remaining T-017 through T-019 are AAHP tracking tasks for already-implemented features awaiting GitHub issue closure.",
   "aahp_version": "3.0",
   "project": "openclaw-todo",
   "token_budget": {
@@ -203,12 +204,12 @@
     "manifest_plus_core": 300
   },
   "last_session": {
-    "timestamp": "2026-02-28T20:20:00.000Z",
+    "timestamp": "2026-02-28T20:23:30.000Z",
     "phase": "implementation",
     "agent": "claude-code",
-    "commit": "6158678",
+    "commit": "5d43600",
     "duration_minutes": 2,
-    "session_id": "t015-close-todo-edit-tracking"
+    "session_id": "t016-close-unit-tests-tracking"
   },
   "next_task_id": 20
 }
