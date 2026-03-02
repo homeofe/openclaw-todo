@@ -1,7 +1,6 @@
 {
   "name": "@elvatis_com/openclaw-todo",
   "version": "0.3.0",
-  "private": true,
   "type": "module",
   "scripts": {
     "build": "tsc",
